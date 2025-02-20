@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="horizontal" data-nav-style="menu-click" data-menu-position="fixed" data-theme-mode="light">
+
+<head>
+
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Dreabee - Your All-in-One Influencer Marketing Platform </title>
+    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
+    <meta name="Author" content="Spruko Technologies Private Limited">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/brand-logos/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap Css -->
+    <link id="style" href="../assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+
+    <!-- Style Css -->
+    <link href="../assets/css/styles.css" rel="stylesheet" >
+
+    <!-- Icons Css -->
+    <link href="../assets/css/icons.css" rel="stylesheet" >
+
+    <!-- Node Waves Css -->
+    <link href="../assets/libs/node-waves/waves.min.css" rel="stylesheet" >
+
+    <!-- SwiperJS Css -->
+    <link rel="stylesheet" href="../assets/libs/swiper/swiper-bundle.min.css">
+
+    <!-- Color Picker Css -->
+    <link rel="stylesheet" href="../assets/libs/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" href="../assets/libs/@simonwep/pickr/themes/nano.min.css">
+
+    <!-- Choices Css -->
+    <link rel="stylesheet" href="../assets/libs/choices.js/public/assets/styles/choices.min.css">
+
+    <script>
+        if(localStorage.ynexlandingdarktheme){
+            document.querySelector("html").setAttribute("data-theme-mode","dark")
+        }
+        if(localStorage.ynexlandingrtl){
+            document.querySelector("html").setAttribute("dir","rtl")
+            document.querySelector("#style")?.setAttribute("href", "../assets/libs/bootstrap/css/bootstrap.rtl.min.css");
+        }
+    </script>
+
+
+</head>
+
+<body class="landing-body">
+
+    <!-- Start Switcher -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="switcher-canvas" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Switcher</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="">
+                <p class="switcher-style-head">Theme Color Mode:</p>
+                <div class="row switcher-style">
+                    <div class="col-4">
+                        <div class="form-check switch-select">
+                            <label class="form-check-label" for="switcher-light-theme">
+                                Light
+                            </label>
+                            <input class="form-check-input" type="radio" name="theme-style" id="switcher-light-theme"
+                                checked>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-check switch-select">
+                            <label class="form-check-label" for="switcher-dark-theme">
+                                Dark
+                            </label>
+                            <input class="form-check-input" type="radio" name="theme-style" id="switcher-dark-theme">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <p class="switcher-style-head">Directions:</p>
+                <div class="row switcher-style">
+                    <div class="col-4">
+                        <div class="form-check switch-select">
+                            <label class="form-check-label" for="switcher-ltr">
+                                LTR
+                            </label>
+                            <input class="form-check-input" type="radio" name="direction" id="switcher-ltr" checked>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-check switch-select">
+                            <label class="form-check-label" for="switcher-rtl">
+                                RTL
+                            </label>
+                            <input class="form-check-input" type="radio" name="direction" id="switcher-rtl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="theme-colors">
+                <p class="switcher-style-head">Theme Primary:</p>
+                <div class="d-flex align-items-center switcher-style">
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-1" type="radio"
+                            name="theme-primary" id="switcher-primary">
+                    </div>
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-2" type="radio"
+                            name="theme-primary" id="switcher-primary1">
+                    </div>
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-3" type="radio" name="theme-primary"
+                            id="switcher-primary2">
+                    </div>
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-4" type="radio" name="theme-primary"
+                            id="switcher-primary3">
+                    </div>
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-5" type="radio" name="theme-primary"
+                            id="switcher-primary4">
+                    </div>
+                    <div class="form-check switch-select me-3 ps-0 mt-1 color-primary-light">
+                        <div class="theme-container-primary"></div>
+                        <div class="pickr-container-primary"></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="switcher-style-head">reset:</p>
+                <div class="text-center">
+                    <button id="reset-all" class="btn btn-danger mt-3">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Switcher -->
+
+    <div class="landing-page-wrapper">
+
+         <!-- app-header -->
+ <header class="app-header">
+
+            <!-- Start::main-header-container -->
+            <div class="main-header-container container-fluid">
+
+                <!-- Start::header-content-left -->
+                <div class="header-content-left">
+
+                    <!-- Start::header-element -->
+                    <div class="header-element">
+                        <div class="horizontal-logo">
+                            <a href="index.html" class="header-logo">
+                                <img src="../assets/images/brand-logos/toggle-logo.png" alt="logo" class="toggle-logo">
+                                <img src="../assets/images/brand-logos/toggle-dark.png" alt="logo" class="toggle-dark">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End::header-element -->
+
+                    <!-- Start::header-element -->
+                    <div class="header-element">
+                        <!-- Start::header-link -->
+                        <a href="javascript:void(0);" class="sidemenu-toggle header-link" data-bs-toggle="sidebar">
+                            <span class="open-toggle">
+                                <i class="ri-menu-3-line fs-20"></i>
+                            </span>
+                        </a>
+                        <!-- End::header-link -->
+                    </div>
+                    <!-- End::header-element -->
+
+                </div>
+                <!-- End::header-content-left -->
+
+                <!-- Start::header-content-right -->
+                <div class="header-content-right">
+
+                    <!-- Start::header-element -->
+                    <div class="header-element align-items-center">
+                        <!-- Start::header-link|switcher-icon -->
+                        <div class="btn-list d-lg-none d-block">
+                            <a href="sign-up-basic.html" class="btn btn-primary-light">
+                               login
+                            </a>
+                            <a href="sign-up-basic.html" class="btn btn-primary-light">
+                                Sign Up
+                            </a>
+                            <button class="btn btn-icon btn-success switcher-icon" data-bs-toggle="offcanvas" data-bs-target="#switcher-canvas">
+                                <i class="ri-settings-3-line"></i>
+                            </button>
+                        </div>
+                        <!-- End::header-link|switcher-icon -->
+                    </div>
+                    <!-- End::header-element -->
+
+                </div>
+                <!-- End::header-content-right -->
+
+            </div>
+            <!-- End::main-header-container -->
+
+        </header>       
+        <!-- /app-header -->
+
+        <!-- Start::app-sidebar -->
+        <aside class="app-sidebar sticky" id="sidebar">
+
+            <div class="container-xl">
+                <!-- Start::main-sidebar -->
+                <div class="main-sidebar">
+
+                    <!-- Start::nav -->
+                    <nav class="main-menu-container nav nav-pills sub-open">
+                        <div class="landing-logo-container">
+                            <div class="horizontal-logo">
+                                <a href="index.html" class="header-logo">
+                                    <img src="../assets/images/brand-logos/desktop-logo.png" alt="logo"
+                                        class="desktop-logo">
+                                    <img src="../assets/images/brand-logos/desktop-white.png" alt="logo"
+                                        class="desktop-white">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="slide-left" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                                width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+                            </svg></div>
+                        <ul class="main-menu">
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a class="side-menu__item" href="landing.html">
+                                    <span class="side-menu__label">Home</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="about-us.html" class="linked_text">
+                                    <span class="side-menu__label">About</span>
+                                </a>
+                                <!-- <a href="about-us.html" class="side-menu__item">
+                                    <span class="side-menu__label">About</span>
+                                </a> -->
+
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                           
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <!-- <li class="slide">
+                                <a href="#testimonials" class="side-menu__item">
+                                    <span class="side-menu__label">Clients</span>
+                                </a>
+                            </li> -->
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <!-- <li class="slide">
+                                <a href="#team" class="side-menu__item">
+                                    <span class="side-menu__label">Team</span>
+                                </a>
+                            </li> -->
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="pricing.html" class="linked_text">
+                                    <span class="side-menu__label">Pricing</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="faq's.html" class="side-menu__item">
+                                    <span class="side-menu__label">Faq's</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="contact-us.html" class="linked_text">
+                                    <span class="side-menu__label">Contact</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+
+                            <li class="slide nav-item dropdown dropdown-mega position-static">
+                                <a class="nav-link dropdown-toggle side-menu__item" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Megamenu</a>
+                                <div class="dropdown-menu shadow">
+                                  <div class="mega-content px-4">
+                                    <div class="container-fluid">
+                                      <div class="row">
+                                        <div class="col-12 col-sm-4 col-md-3 py-4">
+                                          <div class="list-group">
+                                            
+                                                <a href="api-documentation.html" class="linked_text" target="_blank">Api-Documentation</a>
+                                            
+                                                <a href="agency-solutions.html" class="linked_text" target="_blank">Agency-Solutions</a>
+                                                <a href="testimonials.html" class="linked_text" target="_blank">Testimonials</a>
+                                                <a href="InfluencerMarketingTrends.html" class="linked_text" target="_blank">Influencer
+                                                    Marketing Trends</a>
+                                                <a href="InfluencerCategoriesNiches.html" class="linked_text" target="_blank">Influencer
+                                                    Categories Niches</a>
+                                                  
+                                                        <a href="terms_conditions.html" class="linked_text" target="_blank">Terms Conditions</a>
+                                                    
+                                                        <a href="CollaborationHub.html" class="linked_text" target="_blank">Collaboration Hub</a>
+                                                 
+                                                        <a href="blogs.html" class="linked_text" target="_blank">Blog</a>
+                                                    
+                                                        <a href="BrandSuccessKit.html" class="linked_text" target="_blank">Brand Success
+                                                            Kit</a>
+                                                    
+                                                        
+                                                   
+                                            
+                                          </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-4 col-md-3 py-4">
+                                            <div class="list-group">
+
+
+                                                <a href="CaseStudies.html" class="linked_text" target="_blank">Case Studies</a>
+                                                 
+                                                <a href="client-login.html" class="linked_text" target="_blank">Client Login</a>
+                                            
+                                                <a href="InfluencerCategoriesNiches.html" class="linked_text" target="_blank">Influencer Categories &amp; Niches</a>
+                                           
+                                                <a href="InfluencerCollaborationOpportunities.html" class="linked_text" target="_blank">Influencer Collaboration Opportunities</a>
+                                            
+                                                <a href="InfluencerDiscovery.html" class="linked_text" target="_blank">Influencer Discovery</a>
+                                                <a href="SocialProof&amp;Impact.html" class="linked_text" target="_blank">Social
+                                                    Proof &amp; Impact</a>
+                                                <a href="SuccessMetricsExplained.html" class="linked_text" target="_blank">Success Metrics Explained</a>
+                                           
+                                                <a href="Webinar&amp;EventSign-Up.html" class="linked_text" target="_blank">Webinar
+                                                    &amp; Event Sign-Up</a>
+                                                  
+                                                </div>
+
+                                                </div>
+
+                                        
+                                        <div class="col-12 col-sm-4 col-md-3 py-4">
+                                            <div class="list-group">
+
+                                                <a href="news-lettersignup.html" class="linked_text" target="_blank">News Letter </a>
+                                              
+                                              
+                                                <a href="CollaborationHub.html" class="linked_text" target="_blank">Collaboration Hub </a>
+                                           
+                                                <a href="CompetitorInsights.html" class="linked_text" target="_blank">Competitor
+                                                    Insights </a>
+                                         
+                                                <a href="CreatorEconomyResources.html" class="linked_text" target="_blank">Creator Economy Resources </a>
+                                        
+                                                <a href="EducationalVideos&amp;Tutorials.html" class="linked_text" target="_blank">Educational Videos &amp; Tutorials </a>
+                                    
+                                                <a href="Free-Trial&amp;Sign-Up.html" class="linked_text" target="_blank">Free-Trial
+                                                    &amp; Sign-Up </a>
+                                          
+                                                <a href="how-it-works.html" class="linked_text" target="_blank">How-it-works
+                                                </a>
+                                                <a href="PlatformFeatures.html" class="linked_text" target="_blank">Platform
+                                                    Features</a>
+                                                    <a href="RequestaDemo.html" class="linked_text" target="_blank">Request a
+                                                        Demo</a>
+                                                
+                                                </div>
+
+                                                </div>
+
+                                        <div class="col-12 col-sm-4 col-md-3 py-4">
+                                            <div class="list-group">
+                                              
+                                                    
+                                                    <a href="industry-insights-benchmarks.html" class="linked_text" target="_blank">Industry Insights Benchmarks </a>
+                                                    <a href="Influencer-Insights.html" class="linked_text" target="_blank">Influencer Insights </a>
+                                                    <a href="influencer-ranking.html" class="linked_text" target="_blank">Influencer Ranking </a>
+                                                    <a href="InfluencerSign-Up.html" class="linked_text" target="_blank">Influencer
+                                                        Sign-Up </a>
+                                                    <a href="InfluencerSign-UpPortal.html" class="linked_text" target="_blank">Influencer Sign-Up Portal </a>
+                                                    <a href="InfluencerVerification&amp;Fraud.html" class="linked_text" target="_blank">Influencer Verification &amp; Fraud</a>
+                                                    <a href="PartnershipOpportunities.html" class="linked_text" target="_blank">Partnership Opportunities</a>
+                                                    <a href="PlatformDemo.html" class="linked_text" target="_blank">Platform
+                                                        Demo</a>
+                                                   
+                                                        <a href="Press&amp;Media.html" class="linked_text" target="_blank">Press &amp; Media</a>
+                                              
+                                                     
+                                              
+                                            </div>
+                                          </div>
+                                        
+                                    
+                                        
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+
+
+                            <li class="slide has-sub d-none">
+                                <a href="javascript:void(0);" class="side-menu__item">
+                                    <span class="side-menu__label me-2">More</span>
+                                    <i class="fe fe-chevron-right side-menu__angle op-8"></i>
+                                </a>
+                                <ul class="slide-menu child1">
+                                    <li class="slide">
+                                        <a href="api-documentation.html" class="linked_text" target="_blank">Api-Documentation</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="agency-solutions.html" class="linked_text" target="_blank">Agency-Solutions</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="testimonials.html" class="linked_text" target="_blank">Testimonials</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="InfluencerMarketingTrends.html" class="linked_text" target="_blank">Influencer
+                                            Marketing Trends</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="InfluencerCategoriesNiches.html" class="linked_text" target="_blank">Influencer
+                                            Categories Niches</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="terms_conditions.html" class="linked_text" target="_blank">Terms Conditions</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="CollaborationHub.html" class="linked_text" target="_blank">Collaboration Hub</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="blogs.html" class="linked_text" target="_blank">Blog</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="BrandSuccessKit.html" class="linked_text" target="_blank">Brand Success
+                                            Kit</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="CaseStudies.html" class="linked_text" target="_blank">Case Studies</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="client-login.html" class="linked_text" target="_blank">Client Login</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="InfluencerCategoriesNiches.html" class="linked_text"
+                                            target="_blank">Influencer Categories & Niches</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="InfluencerCollaborationOpportunities.html" class="linked_text"
+                                            target="_blank">Influencer Collaboration Opportunities</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="InfluencerDiscovery.html" class="linked_text"
+                                            target="_blank">Influencer Discovery</a>
+                                    </li>
+
+                                    <li class="slide">
+                                        <a href="news-signup.html" class="linked_text" target="_blank">News Letter </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="CollaborationHub.html" class="linked_text"
+                                            target="_blank">Collaboration Hub </a>
+                                    </li>
+
+                                    <li class="slide">
+                                        <a href="CompetitorInsights.html" class="linked_text" target="_blank">Competitor
+                                            Insights </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="CreatorEconomyResources.html" class="linked_text"
+                                            target="_blank">Creator Economy Resources </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="EducationalVideos&Tutorials.html" class="linked_text"
+                                            target="_blank">Educational Videos & Tutorials </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="Free-Trial&Sign-Up.html" class="linked_text" target="_blank">Free-Trial
+                                            & Sign-Up </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="how-it-works.html" class="linked_text" target="_blank">How-it-works
+                                        </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="industry-insights-benchmarks.html" class="linked_text"
+                                            target="_blank">Industry Insights Benchmarks </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="Influencer-Insights.html" class="linked_text"
+                                            target="_blank">Influencer Insights </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="influencer-ranking.html" class="linked_text"
+                                            target="_blank">Influencer Ranking </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="InfluencerSign-Up.html" class="linked_text" target="_blank">Influencer
+                                            Sign-Up </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="InfluencerSign-UpPortal.html" class="linked_text"
+                                            target="_blank">Influencer Sign-Up Portal </a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="InfluencerVerification&Fraud.html" class="linked_text"
+                                            target="_blank">Influencer Verification & Fraud</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="PartnershipOpportunities.html" class="linked_text"
+                                            target="_blank">Partnership Opportunities</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="PlatformDemo.html" class="linked_text" target="_blank">Platform
+                                            Demo</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="PlatformFeatures.html" class="linked_text" target="_blank">Platform
+                                            Features</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="Press&Media.html" class="linked_text" target="_blank">Press & Media</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="RequestaDemo.html" class="linked_text" target="_blank">Requesta
+                                            Demo</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="SocialProof&Impact.html" class="linked_text" target="_blank">Social
+                                            Proof & Impact</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="SuccessMetricsExplained.html" class="linked_text"
+                                            target="_blank">Success Metrics Explained</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="Webinar&EventSign-Up.html" class="linked_text" target="_blank">Webinar
+                                            & EventSign-Up</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="White-LabelSolutions.html" class="linked_text"
+                                            target="_blank">White-Label Solutions</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                        <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                                width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z">
+                                </path>
+                            </svg></div>
+                        <div class="d-lg-flex d-none">
+                            <div class="btn-list d-lg-flex d-none mt-lg-2 mt-xl-0 mt-0">
+                                <a href="sign-in-cover.html" class="btn btn-wave btn-primary">
+                                    Login
+                                </a>
+                                <a href="sign-up-cover.html" class="btn btn-wave btn-primary">
+                                    Sign Up
+                                </a>
+                                 
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- End::nav -->
+
+                </div>
+                <!-- End::main-sidebar -->
+            </div>
+
+        </aside>
+        <!-- End::app-sidebar -->
+
+        <!-- Start::app-content -->
+         <div class="pt-5 mt-5"><br>
+            <h5 class="fw-semibold mb-2 text-center">Case Studies </h5>
+            <p class="task-description text-center">See how Dreabee has empowered brands to achieve remarkable results through strategic influencer marketing. These case studies showcase real-world examples of brands that leveraged our platform to drive engagement, build brand awareness, and achieve measurable success. Discover what’s possible with Dreabee.</p>
+
+         </div>
+        <div class="main-content app-content mt-5 pt-5">
+
+          
+            <div class="main-content app-content">
+                <section class="section-padding bg-success-transparent">
+                <div class="container">
+    
+    
+                    <!-- Start::row-1 -->
+                    <div class="row align-items-center">   
+                        <div class="col-md-6">
+                            <div class="card custom-card">
+                              
+                                <div class="card-body pl-0  pr-0">
+                                
+                                    <h4 class="fs-15 fw-semibold mb-2 text-primary">Case Study 1: Elevating Brand Awareness for [Brand X] </h4>
+                                    <p>Objective: [Brand X], a skincare company, wanted to increase brand awareness among young audiences and showcase the effectiveness of its products.</p>
+                                    <hr>
+                                    <div>
+                                        <h5 class="fw-semibold">Approach:</h5>
+                                        <ul class="task-details-key-tasks mb-0 list-unstyled">
+                                            <li>Dreabee’s Influencer Search helped [Brand X] identify micro-influencers on Instagram who aligned with their brand values and target demographic</li>
+                                            <li>Campaign Management tools allowed [Brand X] to oversee influencer collaborations efficiently, ensuring consistent messaging and timely content delivery.</li>
+                                           
+                                          
+                                        </ul>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <h5 class="fw-semibold">Result:</h5>
+                                        <ul class="task-details-key-tasks mb-0 list-unstyled">
+                                            <li>[Brand X] saw a 35% increase in social media engagement and reached 500,000 new potential customers in their target demographic.</li>
+                                            <li>The campaign generated positive audience sentiment, with 80% of comments reflecting favorable brand perceptions.</li>
+                                           
+                                          
+                                        </ul>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <img class="w-100" src="../assets/images/media/landing/campaign/1.jpg" alt="">
+                        </div>
+                    </div>
+                    <!--End::row-1 -->
+    
+                </div>
+            </section>
+                <section class="section-padding bg-danger-transparent">
+                <div class="container">
+    
+    
+                    <!-- Start::row-1 -->
+                    <div class="row align-items-center">   
+                        <div class="col-md-6">
+                            <img class="w-100" src="../assets/images/media/landing/campaign/2.jpg" alt="">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card custom-card">
+                              
+                                <div class="card-body pl-0  pr-0">
+                                
+                                
+                                    <h4 class="fs-15 fw-semibold mb-2 text-primary">Case Study 2: Boosting Conversions for [Brand Y]</h4>
+                                    <p>Objective: [Brand Y]and drive sales through targeted in, an e-commerce fashion retailer, aimed to increase website conversions fluencer collaborations.</p>
+                                    <hr>
+                                    <div>
+                                        <h5 class="fw-semibold">Approach:</h5>
+                                        <ul class="task-details-key-tasks mb-0 list-unstyled">
+                                            <li>[Brand Y] used Dreabee’s Audience Demographics and Competitor Analysis to identify influencers who had a strong track record in driving conversions for fashion brands.</li>
+                                            <li>With sentiment analysis, [Brand Y] fine-tuned campaign messaging based on real-time audience feedback, adjusting content to optimize engagement and alignment with audience interests.</li>
+                                           
+                                          
+                                        </ul>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <h5 class="fw-semibold">Result:</h5>
+                                        <ul class="task-details-key-tasks mb-0 list-unstyled">
+                                            <li>A 45% boost in website conversions, with 25% of visitors driven directly from influencer content.</li>
+                                            <li>Overall, the campaign achieved a 50% increase in ROI compared to previous campaigns without Dreabee insights.</li>
+                                           
+                                          
+                                        </ul>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                           
+                        </div>
+                       
+                    </div>
+                    <!--End::row-1 -->
+    
+                </div>
+            </section>
+                <section class="section-padding bg-info-transparent">
+                <div class="container">
+    
+    
+                    <!-- Start::row-1 -->
+                    <div class="row align-items-center">   
+                        <div class="col-md-6">
+                            <div class="card custom-card">
+                              
+                                <div class="card-body pl-0  pr-0">
+                                
+                                
+                                    <h4 class="fs-15 fw-semibold mb-2 text-primary">Case Study 3: Enhancing Brand Loyalty for [Brand Z]</h4>
+                                    <p>Objective: [Brand Z], a fitness brand, wanted to foster loyalty and build a community around its products by collaborating with fitness influencers.</p>
+                                    <hr>
+                                    <div>
+                                        <h5 class="fw-semibold">Approach:</h5>
+                                        <ul class="task-details-key-tasks mb-0 list-unstyled">
+                                            <li>Dreabee’s Campaign Management tools allowed [Brand Z] to create ongoing partnerships with fitness influencers, aligning them closely with brand values.</li>
+                                            <li>With detailed Analytics and Sentiment Analysis, [Brand Z] continuously monitored the impact of each collaboration, adapting strategies to enhance community engagement.</li>
+                                           
+                                          
+                                        </ul>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <h5 class="fw-semibold">Result:</h5>
+                                        <ul class="task-details-key-tasks mb-0 list-unstyled">
+                                            <li>[Brand Z] saw a 30% increase in repeat customer purchases and a significant boost in online community growth.</li>
+                                            <li>Positive sentiment increased by 60%, reflecting a stronger brand connection and loyalty among audiences.</li>
+                                           
+                                          
+                                        </ul>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <img class="w-100" src="../assets/images/media/landing/campaign/3.jpg" alt="">
+                        </div>
+                    </div>
+                    <!--End::row-1 -->
+    
+                </div>
+            </section>
+                      <!-- Start:: Section-6 -->
+                       <section class="bg-primary section-padding">
+                        <div class="container">
+                            <div class="col-xxl-12 col-xl-12">
+                                <div class="">
+                                    <a href="javascript:void(0);" class="card-anchor"></a>
+                                    <div class="card-body text-center">
+                                      
+                            
+                                        <p class="text-fixed-white">Ready to achieve results like these? Join the many brands that trust Dreabee to enhance their influencer marketing and drive measurable success.</p>
+                                       
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       </section>
+              
+            </div>
+          
+
+            </div>
+        </div>
+     
+        <!-- End::app-content -->
+
+    </div>
+    <section class="section landing-footer text-fixed-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-12 mb-md-0 mb-3">
+                    <div class="px-4">
+                        <p class="fw-semibold mb-3"><a href="index.html"><img src="../assets/images/brand-logos/desktop-dark.png" alt=""></a></p>
+                        <p class="mb-2 op-6 fw-normal">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit et magnam, fuga est mollitia eius, quo illum illo inventore optio aut quas omnis rem. Dolores accusantium aspernatur minus ea incidunt.
+                        </p>
+                        <p class="mb-0 op-6 fw-normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem ea esse ad</p>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 col-12">
+                    <div class="px-4">
+                        <h6 class="fw-semibold mb-3 text-fixed-white">PAGES</h6>
+                        <ul class="list-unstyled op-6 fw-normal landing-footer-list">
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Email</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Profile</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Timeline</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Projects</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Contacts</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Portfolio</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 col-12">
+                    <div class="px-4">
+                        <h6 class="fw-semibold text-fixed-white">INFO</h6>
+                        <ul class="list-unstyled op-6 fw-normal landing-footer-list">
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Our Team</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Contact US</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">About</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Services</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Blog</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white">Terms &amp; Conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                    <div class="px-4">
+                        <h6 class="fw-semibold text-fixed-white">CONTACT</h6>
+                        <ul class="list-unstyled fw-normal landing-footer-list">
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white op-6"><i class="ri-home-4-line me-1 align-middle"></i> New York, NY 10012, US</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white op-6"><i class="ri-mail-line me-1 align-middle"></i> info@fmail.com</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white op-6"><i class="ri-phone-line me-1 align-middle"></i> +(555)-1920 1831</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="text-fixed-white op-6"><i class="ri-printer-line me-1 align-middle"></i> +(123) 1293 123</a>
+                            </li>
+                            <li class="mt-3">
+                                <p class="mb-2 fw-semibold op-8">FOLLOW US ON :</p>
+                                <div class="mb-0">
+                                    <div class="btn-list">
+                                        <button class="btn btn-sm btn-icon btn-primary-light btn-wave waves-effect waves-light">
+                                            <i class="ri-facebook-line fw-bold"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-icon btn-secondary-light btn-wave waves-effect waves-light">
+                                            <i class="ri-twitter-x-line fw-bold"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-icon btn-warning-light btn-wave waves-effect waves-light">
+                                            <i class="ri-instagram-line fw-bold"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-icon btn-success-light btn-wave waves-effect waves-light">
+                                            <i class="ri-github-line fw-bold"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-icon btn-danger-light btn-wave waves-effect waves-light">
+                                            <i class="ri-youtube-line fw-bold"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="scrollToTop">
+        <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
+    </div>
+    <div id="responsive-overlay"></div>
+
+    <!-- Popper JS -->
+    <script src="../assets/libs/@popperjs/core/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Color Picker JS -->
+    <script src="../assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
+
+    <!-- Choices JS -->
+    <script src="../assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="../assets/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Defaultmenu JS -->
+    <script src="../assets/js/defaultmenu.min.js"></script>
+
+    <!-- Internal Landing JS -->
+    <script src="../assets/js/landing.js"></script>
+
+    <!-- Node Waves JS-->
+    <script src="../assets/libs/node-waves/waves.min.js"></script>
+
+    <!-- Sticky JS -->
+    <script src="../assets/js/sticky.js"></script>
+
+</body>
+
+</html>
